@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>PisaKart - Custom Combo Packs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            margin: 0; 
+            font-family: 'Poppins', Arial, sans-serif; 
+            background: #ffffff; 
+            color: #333; 
+        }
+        
+        .navbar {
+            position: block; 
+            top: 0; 
+            background: #ffffff; 
+            padding: 10px 20px;
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+            z-index: 1000;
+        }
+        
+        .logo { 
+            font-weight: bold; 
+            font-size: 24px; 
+            color: #2e7d32; 
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .nav-links { 
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-links a { 
+            margin-left: 20px; 
+            text-decoration: none; 
+            color: #2e7d32; 
+            font-weight: 600; 
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #1b5e20;
+        }
+
+/* Hero Slider Styles */
+.hero-container {
+  position: relative;
+  width: 100%;
+  max-width: 1550px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  height: 500px;
+}
+
+.hero-slider {
+  display: flex;
+  transition: transform 0.5s ease;
+  height: 100%;
+}
+
+.hero-slide {
+  min-width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.hero-content {
+  width: 50%;
+  padding: 0 5%;
+  color: #333;
+  background-color: rgba(245, 245, 245, 0.8);
+  margin-left: 5%;
+  border-radius: 8px;
+  padding: 30px;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #2e7d32;
+  line-height: 1.2;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.hero-cta, .cta-button {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #2e7d32;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 2px solid #2e7d32;
+}
+
+.hero-cta:hover {
+  background-color: transparent;
+  color: #2e7d32;
+}
+
+.hero-prev, .hero-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #2e7d32;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.5rem;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.hero-prev:hover, .hero-next:hover {
+  background-color: #2e7d32;
+  color: white;
+}
+
+.hero-prev {
+  left: 20px;
+}
+
+.hero-next {
+  right: 20px;
+}
+
+.hero-nav {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.hero-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hero-dot.active {
+  background-color: #2e7d32;
+  transform: scale(1.2);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .hero-container {
+    height: 400px;
+  }
+  
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-content p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-container {
+    height: 350px;
+  }
+  
+  .hero-slide {
+    flex-direction: column;
+    justify-content: flex-end;
+    background: linear-gradient(to top, #f5f5f5 40%, transparent), var(--bg-image) center/cover no-repeat !important;
+  }
+  
+  .hero-content {
+    width: 100%;
+    margin-left: 0;
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(245, 245, 245, 0.9);
+  }
+  
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+  
+  .hero-prev, .hero-next {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-container {
+    height: 300px;
+  }
+  
+  .hero-content h1 {
+    font-size: 1.5rem;
+  }
+  
+  .hero-content p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-cta {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+  }
+  
+  .hero-nav {
+    bottom: 10px;
+  }
+  
+  .hero-dot {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: #2e7d32;
+            background: none;
+            border: none;
+        }
+
+        /* Original Content Styles */
+        .empty-pack {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            margin: 40px 0;
+            color: #2e7d32;
+        }
+        
+        .empty-boxes {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .empty-box {
+            width: 60px;
+            height: 60px;
+            border: 2px dashed #2e7d32;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2e7d32;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            position: relative;
+            flex-shrink: 0;
+        }
+        
+        .empty-box.filled {
+            border: 2px solid #2e7d32;
+        }
+        
+        .remove-item {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            width: 20px;
+            height: 20px;
+            background: #ff5252;
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            cursor: pointer;
+            border: 2px solid white;
+            z-index: 2;
+            opacity: 1; /* Always visible on mobile */
+            transition: opacity 0.3s;
+        }
+        
+        .empty-box:hover .remove-item {
+            opacity: 1;
+        }
+        
+        .selection-message {
+            text-align: center;
+            margin: 0 0 40px;
+            color: #2e7d32;
+            font-size: 1.1rem;
+        }
+        
+        .product-container {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            padding: 30px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 90%;
+            margin: 40px auto;
+        }
+        
+        .product-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2e7d32;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .check-now {
+            margin-bottom: 30px;
+            text-align: center;
+            display: none;
+        }
+        
+        .product-row {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 15px;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .product-row.middle {
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+        
+        .product-option {
+            background-color: #fff;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 15px;
+            width: 120px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+            flex-shrink: 0;
+            position: relative;
+        }
+        
+        .product-option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(46, 125, 50, 0.2);
+            border-color: #2e7d32;
+        }
+
+        .product-option.disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+        
+        .product-option.disabled::after {
+            content: "Pack Full";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #f44336;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            z-index: 10;
+        }
+        
+        .product-image {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            margin-bottom: 10px;
+            border-radius: 8px;
+        }
+        
+        .product-name {
+            font-weight: bold;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        /* NEW: Added for product highlight */
+        .product-option.has-product {
+            border: 2px solid red !important;
+        }
+
+        /* NEW: Category cart counter styles */
+        .category-counter {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            width: 24px;
+            height: 24px;
+            background-color: #2e7d32;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            z-index: 10;
+            border: 2px solid white;
+        }
+
+        .section {
+            padding: 60px 20px 40px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        
+        .section h2 {
+            text-align: center;
+            color: #2e7d32;
+            margin-bottom: 30px;
+        }
+        
+        .pain-list {
+            list-style-type: none;
+            padding-left: 0;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+        
+        .pain-list li {
+            background: #f0f7f0;
+            border-left: 4px solid #2e7d32;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+        }
+        
+        .pain-list strong {
+            color: #2e7d32;
+        }
+        
+        .benefits, .trust, .faq {
+            display: grid;
+            gap: 15px;
+            font-size: 1rem;
+        }
+        
+        .footer {
+            background-color: #212121;
+            text-align: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 40px 20px 20px;
+        }
+        
+        .footer-top {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+        
+        .footer-section {
+            flex: 1 1 180px;
+            min-width: 180px;
+        }
+        
+        .footer-section h4 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .footer-section a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            margin: 6px 0;
+            font-size: 14px;
+        }
+        
+        .footer-section p {
+            font-size: 14px;
+            margin: 6px 0;
+            line-height: 1.5;
+        }
+        
+        .social-icons {
+            margin-top: 15px;
+        }
+        
+        .social-icons a img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            filter: brightness(0) invert(1);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 15px;
+            font-size: 14px;
+            border-top: 1px solid #333;
+        }
+
+        /* Animations */
+        @keyframes fadeSlideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes blink {
+            0%, 100% { background-color: #ff5252; border-color: #ff5252; }
+            50% { background-color: #ff9800; border-color: #ff9800; }
+        }
+
+        .check-now.animated {
+            animation: fadeSlideUp 0.6s ease-out forwards;
+        }
+
+        /* Improved Media Queries */
+        @media (max-width: 1200px) {
+            .hero-slide {
+                padding: 0 60px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-slide {
+                padding: 0 40px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .product-container {
+                padding: 25px;
+            }
+            
+            .product-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-wrap: wrap;
+                padding: 10px;
+            }
+            
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+                padding: 10px 0;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links a {
+                margin: 10px 0;
+                padding: 8px 0;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .hero-container {
+                height: 350px;
+            }
+            
+            .hero-slide {
+                padding: 0 30px;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+            }
+            
+            .hero-content {
+                max-width: 100%;
+            }
+            
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .empty-box {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .remove-item {
+                width: 18px;
+                height: 18px;
+                font-size: 10px;
+            }
+        }
+
+        /* MOBILE-SPECIFIC PRODUCT LAYOUT */
+        @media (max-width: 576px) {
+            .product-row {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                margin-bottom: 0;
+            }
+            
+            .product-row.middle {
+                margin-left: 0;
+                margin-right: 0;
+            }
+            
+            .product-option {
+                width: 180px;
+                padding: 20px;
+                margin-bottom: 15px;
+            }
+            
+            .product-image {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .product-name {
+                font-size: 1.1rem;
+            }
+            
+            .hero-container {
+                height: 300px;
+            }
+            
+            .hero-content h1 {
+                font-size: 1.6rem;
+            }
+            
+            .hero-content p {
+                font-size: 0.9rem;
+            }
+            
+            .hero-cta, .cta-button {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .empty-boxes {
+                gap: 10px;
+            }
+            
+            .empty-box {
+                width: 45px;
+                height: 45px;
+                font-size: 0.9rem;
+            }
+            
+            .remove-item {
+                width: 16px;
+                height: 16px;
+                top: -6px;
+                right: -6px;
+            }
+            
+            .product-container {
+                padding: 20px;
+            }
+            
+            .product-title {
+                font-size: 1.5rem;
+            }
+            
+            .section {
+                padding: 40px 15px 30px;
+            }
+            
+            .section h2 {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .empty-box {
+                width: 40px;
+                height: 40px;
+                font-size: 0.8rem;
+            }
+            
+            .remove-item {
+                width: 14px;
+                height: 14px;
+                top: -5px;
+                right: -5px;
+            }
+            
+            .hero-content h1 {
+                font-size: 1.4rem;
+            }
+            
+            .hero-content p {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">PisaKart</div>
+        <div class="nav-links">
+            <a href="myorders.html">My Orders</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="about.html">About Us</a>
+        </div>
+        <button class="menu-toggle" aria-label="Menu">☰</button>
+    </div>
+
+    
+<div class="hero-container">
+    <div class="hero-slider" id="heroSlider">
+        
+        <div class="hero-slide" style="background: linear-gradient(to right, #f5f5f5 50%, transparent), url('https://images.unsplash.com/photo-1556228578-5f4d35d4e6a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') right center/cover no-repeat;">
+            <div class="hero-content">
+                <h1>Gentle Facewashes for Every Skin Type</h1>
+                <p>Discover our pH-balanced facewashes that cleanse without stripping your skin's natural moisture. Perfect for daily use!</p>
+                <a href="product1.html" class="hero-cta">Shop Facewashes</a>
+            </div>
+        </div>
+        
+        
+        <div class="hero-slide" style="background: linear-gradient(to right, #f5f5f5 50%, transparent), url('https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') right center/cover no-repeat;">
+            <div class="hero-content">
+                <h1>Advanced Sun Protection</h1>
+                <p>Broad spectrum SPF 50+ sunscreens that protect against UVA/UVB rays while keeping your skin hydrated all day.</p>
+                <a href="product2.html" class="hero-cta">Explore Sunscreens</a>
+            </div>
+        </div>
+        
+        
+        <div class="hero-slide" style="background: linear-gradient(to right, #f5f5f5 50%, transparent), url('https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') right center/cover no-repeat;">
+            <div class="hero-content">
+                <h1>Powerful Serums for Targeted Care</h1>
+                <p>Our concentrated serums address specific concerns like aging, hydration and brightening with active ingredients.</p>
+                <a href="product3.html" class="hero-cta">Discover Serums</a>
+            </div>
+        </div>
+        
+       
+        <div class="hero-slide" style="background: linear-gradient(to right, #f5f5f5 50%, transparent), url('https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') right center/cover no-repeat;">
+            <div class="hero-content">
+                <h1>24-Hour Hydration Moisturizers</h1>
+                <p>Lightweight yet deeply nourishing formulas that adapt to your skin's needs throughout the day and night.</p>
+                <a href="product4.html" class="hero-cta">Browse Moisturizers</a>
+            </div>
+        </div>
+        
+        
+        <div class="hero-slide" style="background: linear-gradient(to right, #f5f5f5 50%, transparent), url('https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') right center/cover no-repeat;">
+            <div class="hero-content">
+                <h1>Refreshing Rose Water & Cleansers</h1>
+                <p>Natural rose water toners and gentle cleansers to purify and refresh your skin without irritation.</p>
+                <a href="product5.html" class="hero-cta">Try Rose Water</a>
+            </div>
+        </div>
+    </div>
+    <div class="hero-prev" id="heroPrev">❮</div>
+    <div class="hero-next" id="heroNext">❯</div>
+    <div class="hero-nav" id="heroNav">
+        <span class="hero-dot active" data-index="0"></span>
+        <span class="hero-dot" data-index="1"></span>
+        <span class="hero-dot" data-index="2"></span>
+        <span class="hero-dot" data-index="3"></span>
+        <span class="hero-dot" data-index="4"></span>
+    </div>
+</div>
+
+    
+    <div class="empty-pack">
+        <h2 id="packStatus" style="margin: 0; font-family: Arial, sans-serif; color: #2e7d32;">Your Pack is Empty</h2>
+    </div>
+    
+    <div class="empty-boxes" id="emptyBoxes">
+        <div class="empty-box">1</div>
+        <div class="empty-box">2</div>
+        <div class="empty-box">3</div>
+        <div class="empty-box">4</div>
+        <div class="empty-box">5</div>
+    </div>
+
+    <p class="selection-message" id="selectionMessage">Pick minimum 3 products to order your pack</p>
+
+    <div class="product-container" id="product-container">
+        <h1 class="product-title">PISA - ON YOUR OWN</h1>
+
+        <div class="check-now" id="checkNow">
+            <h2>Your PISA Pack is Ready!</h2><br>
+            <a href="#" class="cta-button" id="checkNowBtn">Check Now</a>
+        </div>
+
+      
+        <div class="product-row">
+            <a href="product1.html" class="product-option" data-category="facewash">
+                <img src="Facewash.jpg" alt="Face Wash" class="product-image">
+                <div class="product-name">Facewash</div>
+                <!-- NEW: Category counter -->
+                <div class="category-counter" id="facewash-counter">0</div>
+            </a>
+            <a href="product2.html" class="product-option" data-category="sunscreen">
+                <img src="Sunscreen.jpg" alt="Sunscreen" class="product-image">
+                <div class="product-name">Sunscreen</div>
+                <!-- NEW: Category counter -->
+                <div class="category-counter" id="sunscreen-counter">0</div>
+            </a>
+        </div>
+        
+        
+        <div class="product-row middle">
+            <a href="product3.html" class="product-option" data-category="moisturizer">
+                <img src="Moisturizer.jpg" alt="Moisturizer" class="product-image">
+                <div class="product-name">Moisturizer</div>
+                <!-- NEW: Category counter -->
+                <div class="category-counter" id="moisturizer-counter">0</div>
+            </a>
+        </div>
+        
+       
+        <div class="product-row">
+            <a href="product4.html" class="product-option" data-category="serum">
+                <img src="Serum.jpg" alt="Serum" class="product-image">
+                <div class="product-name">Face Serum</div>
+                <!-- NEW: Category counter -->
+                <div class="category-counter" id="serum-counter">0</div>
+            </a>
+            <a href="product5.html" class="product-option" data-category="rosewater">
+                <img src="Rosewater.jpg" alt="Rose Water" class="product-image">
+                <div class="product-name">Rose Water</div>
+                <!-- NEW: Category counter -->
+                <div class="category-counter" id="rosewater-counter">0</div>
+            </a>
+        </div>
+    </div>
+
+    <section class="section">
+        <h2>😫 Common Problems, 😌 Simple Solutions</h2>
+        <ul class="pain-list">
+            <li><strong>Problem:</strong> You have to buy the products from different platforms.<br><strong>Solution:</strong> Pisa Pack gives you all essentials in one place!</li>
+            <li><strong>Problem:</strong> You waste time researching which products are good.<br><strong>Solution:</strong> We handpick trusted, natural brands – no guesswork.</li>
+            <li><strong>Problem:</strong> You're tired of harsh, chemical-filled products.<br><strong>Solution:</strong> Every product in the pack is clean and gentle.</li>
+            <li><strong>Problem:</strong> It's tough to keep up a consistent routine.<br><strong>Solution:</strong> Pisa Pack includes only what you truly need – making daily care effortless.</li>
+            <li><strong>Problem:</strong> You want to gift someone, but don't know what's safe or useful.<br><strong>Solution:</strong> Pisa Pack is thoughtful, practical, and beautiful – the perfect gift!</li>
+            <li><strong>Problem:</strong> Too many trial-and-error purchases waste your money.<br><strong>Solution:</strong> Save money with our curated kit – no bad buys.</li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <h2>Why Pisa Pack?</h2>
+        <div class="benefits">
+            <p>✅ Save time & effort – All essentials in one</p>
+            <p>✅ Trusted best-selling brands</p>
+            <p>✅ Curated for Indian skin & hair</p>
+            <p>✅ Perfect for gifting or self-care</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Trusted by Thousands</h2>
+        <div class="trust">
+            <p>🔒 100% Genuine Products</p>
+            <p>💰 Cash on Delivery Available</p>
+            <p>🔁 Easy Return Policy</p>
+            <p>🛡 Secure Payments via Shiprocket & Razorpay</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq">
+            <p><strong>Q:</strong> Are the products original?<br><strong>A:</strong> Yes, we only use genuine, brand-authorized products.</p>
+            <p><strong>Q:</strong> Is it suitable for sensitive skin?<br><strong>A:</strong> Absolutely! All products are chosen for gentle and natural care.</p>
+            <p><strong>Q:</strong> How long will delivery take?<br><strong>A:</strong> 3–5 days based on your location (fulfilled via Shiprocket).</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-section">
+                <h4>ABOUT</h4>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+                
+            </div>
+            <div class="footer-section">
+                <h4>HELP</h4>
+                <a href="payments.html">Payments</a>
+                <a href="shipping.html">Shipping</a>
+                <a href="return.html">Cancellation & Returns</a>
+                
+            </div>
+            <div class="footer-section">
+                <h4>CONSUMER POLICY</h4>
+                
+                <a href="terms.html">Terms Of Use</a>
+                <a href="security.html">Security</a>
+                <a href="privacy.html">Privacy</a>
+            </div>
+            <div class="footer-section">
+                <h4>MAIL US</h4>
+                <p>pisakarthelp@gmail.com,<br> Building 50, Jaihind chowk<br> Bhilai 3, Durg, 490021<br> Chhattisgarh, India</p>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2025 Pisakart.com</div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle functionality
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+            
+            // Change icon based on state
+            if (navLinks.classList.contains('active')) {
+                this.innerHTML = '✕';
+            } else {
+                this.innerHTML = '☰';
+            }
+        });
+
+
+let currentHeroSlide = 0;
+const heroSlider = document.getElementById('heroSlider');
+const heroDots = document.querySelectorAll('.hero-dot');
+const heroPrev = document.getElementById('heroPrev');
+const heroNext = document.getElementById('heroNext');
+const totalHeroSlides = document.querySelectorAll('.hero-slide').length;
+let heroSlideInterval;
+
+// Set background images for slides
+const heroSlides = document.querySelectorAll('.hero-slide');
+heroSlides.forEach((slide, index) => {
+  const bgImages = [
+    'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80', // Facewash
+    'https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80', // Sunscreen
+    'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80', // Serum
+    'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80', // Moisturizer
+    'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'  // Rose water
+  ];
+  
+  slide.style.background = `linear-gradient(to right, #f5f5f5 50%, transparent), url('${bgImages[index]}') right center/cover no-repeat`;
+  slide.style.setProperty('--bg-image', `url('${bgImages[index]}')`);
+});
+
+function goToHeroSlide(index) {
+  currentHeroSlide = (index + totalHeroSlides) % totalHeroSlides;
+  heroSlider.style.transform = `translateX(-${currentHeroSlide * 100}%)`;
+  
+  // Update dots
+  heroDots.forEach(dot => dot.classList.remove('active'));
+  heroDots[currentHeroSlide].classList.add('active');
+}
+
+function nextHeroSlide() {
+  goToHeroSlide(currentHeroSlide + 1);
+}
+
+function prevHeroSlide() {
+  goToHeroSlide(currentHeroSlide - 1);
+}
+
+function startHeroSlider() {
+  heroSlideInterval = setInterval(nextHeroSlide, 5000); // Change slide every 5 seconds
+}
+
+function stopHeroSlider() {
+  clearInterval(heroSlideInterval);
+}
+
+// Initialize slider
+heroDots.forEach(dot => {
+  dot.addEventListener('click', function() {
+    const slideIndex = parseInt(this.getAttribute('data-index'));
+    goToHeroSlide(slideIndex);
+    stopHeroSlider();
+    startHeroSlider(); // Restart auto-scrolling after manual navigation
+  });
+});
+
+heroPrev.addEventListener('click', function() {
+  prevHeroSlide();
+  stopHeroSlider();
+  startHeroSlider();
+});
+
+heroNext.addEventListener('click', function() {
+  nextHeroSlide();
+  stopHeroSlider();
+  startHeroSlider();
+});
+
+// Start auto-scrolling
+startHeroSlider();
+
+// Pause on hover
+const heroContainer = document.querySelector('.hero-container');
+heroContainer.addEventListener('mouseenter', stopHeroSlider);
+heroContainer.addEventListener('mouseleave', startHeroSlider);
+
+// Initialize first slide
+goToHeroSlide(0);
+
+        // NEW: Function to check if pack is full
+        function isPackFull() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            return cart.length >= 5;
+        }
+
+        // NEW: Function to check if category has items
+        function categoryHasItems(category) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            return cart.some(item => item.category === category);
+        }
+
+        // NEW: Function to count items in a category
+        function countItemsInCategory(category) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            return cart.filter(item => item.category === category).length;
+        }
+
+        // NEW: Update category counters
+        function updateCategoryCounters() {
+            const categories = ['facewash', 'sunscreen', 'moisturizer', 'serum', 'rosewater'];
+            
+            categories.forEach(category => {
+                const count = countItemsInCategory(category);
+                const counterElement = document.getElementById(`${category}-counter`);
+                
+                if (counterElement) {
+                    counterElement.textContent = count;
+                    
+                    // Hide counter if count is 0
+                    if (count === 0) {
+                        counterElement.style.display = 'none';
+                    } else {
+                        counterElement.style.display = 'flex';
+                    }
+                }
+            });
+        }
+
+        // NEW: Update product options based on pack status
+        function updateProductOptions() {
+            const isFull = isPackFull();
+            const productOptions = document.querySelectorAll('.product-option');
+            
+            productOptions.forEach(option => {
+                const category = option.dataset.category;
+                const hasItems = categoryHasItems(category);
+                
+                // Disable if pack is full and category doesn't have items
+                if (isFull && !hasItems) {
+                    option.classList.add('disabled');
+                } else {
+                    option.classList.remove('disabled');
+                }
+            });
+        }
+
+        function updateEmptyBoxes() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const boxes = document.querySelectorAll('.empty-box');
+            const checkNow = document.getElementById('checkNow');
+            const packStatus = document.getElementById('packStatus');
+            const selectionMessage = document.getElementById('selectionMessage');
+
+            boxes.forEach((box, index) => {
+                // Clear previous content and remove buttons
+                box.innerHTML = '';
+                box.classList.remove('filled');
+                
+                // Remove any existing remove buttons
+                const existingRemoveBtn = box.querySelector('.remove-item');
+                if (existingRemoveBtn) {
+                    existingRemoveBtn.remove();
+                }
+
+                if (cart[index]) {
+                    // Create and add the product image
+                    const img = document.createElement('img');
+                    img.src = cart[index].image;
+                    img.style.maxWidth = '90%';
+                    img.style.maxHeight = '90%';
+                    box.appendChild(img);
+                    
+                    // Add the remove button
+                    const removeBtn = document.createElement('div');
+                    removeBtn.className = 'remove-item';
+                    removeBtn.innerHTML = '×';
+                    removeBtn.addEventListener('click', function(e) {
+                        e.stopPropagation(); // Prevent event bubbling
+                        removeFromCart(index);
+                    });
+                    box.appendChild(removeBtn);
+                    
+                    // Update box styling
+                    box.classList.add('filled');
+                    box.style.border = "2px solid #2e7d32";
+                    box.style.animation = "none";
+                    box.style.backgroundColor = "transparent";
+                } else {
+                    // Empty box styling
+                    box.innerHTML = index + 1;
+                    box.style.border = "2px dashed #2e7d32";
+                    box.style.animation = "none";
+                    box.style.backgroundColor = "transparent";
+                }
+            });
+
+            // Update pack status and selection message
+            if (cart.length === 0) {
+                packStatus.textContent = "Your Pack is Empty";
+                selectionMessage.textContent = "Pick minimum 3 products to order your pack";
+            } else if (cart.length < 3) {
+                packStatus.textContent = "Your Pack is Empty";
+                selectionMessage.textContent = `Pick ${3 - cart.length} more products to order your pack`;
+            } else if (cart.length >= 3 && cart.length < 5) {
+                packStatus.textContent = "You are ready to get your pack now!";
+                selectionMessage.textContent = `You have space for ${5 - cart.length} more products`;
+            } else if (cart.length === 5) {
+                packStatus.textContent = "Your Pack is Full!";
+                selectionMessage.textContent = "Your pack is full! Ready to order.";
+                // Add blinking effect to all boxes
+                boxes.forEach(box => {
+                    box.style.animation = "blink 1s infinite";
+                });
+            }
+
+            if (cart.length >= 3) {
+                checkNow.style.display = 'block';
+                checkNow.classList.add('animated');
+            } else {
+                checkNow.style.display = 'none';
+                checkNow.classList.remove('animated');
+            }
+            
+            // NEW: Update product options
+            updateProductOptions();
+            
+            // NEW: Update category counters
+            updateCategoryCounters();
+        }
+        
+        function removeFromCart(index) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            if (index >= 0 && index < cart.length) {
+                cart.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateEmptyBoxes();
+                updateProductHighlights();
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', function() {
+            updateEmptyBoxes();
+            updateProductHighlights();
+            
+            // NEW: Setup product option click handlers
+            document.querySelectorAll('.product-option').forEach(option => {
+                option.addEventListener('click', function(e) {
+                    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    const category = this.dataset.category;
+                    const hasItems = cart.some(item => item.category === category);
+                    
+                    if (cart.length >= 5 && !hasItems) {
+                        e.preventDefault();
+                        alert('Your pack is full! Please remove some items before adding more.');
+                    }
+                });
+            });
+        });
+
+        window.addEventListener('storage', function() {
+            updateEmptyBoxes();
+            updateProductHighlights();
+        });
+        
+        document.getElementById('checkNowBtn').addEventListener('click', function (e) {
+            e.preventDefault();
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const fromPricePage = localStorage.getItem("backFromPrice");
+
+            if (cart.length >= 3 && fromPricePage === "true") {
+                // Reset flag and go to price.html directly
+                localStorage.removeItem("backFromPrice");
+                window.location.href = "price.html";
+            } else {
+                // Normal first-time flow
+                window.location.href = "pisa2.html";
+            }
+        });
+        
+        // Listen for messages from product pages
+        window.addEventListener('message', function(event) {
+            if (event.data.type === 'updateHighlights') {
+                updateProductHighlights();
+            }
+        });
+        
+        // NEW: Function to update product highlights
+        function updateProductHighlights() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const productOptions = document.querySelectorAll('.product-option');
+            
+            productOptions.forEach(option => {
+                const category = option.dataset.category;
+                const hasProduct = cart.some(item => item.category === category);
+                
+                if (hasProduct) {
+                    option.classList.add('has-product');
+                } else {
+                    option.classList.remove('has-product');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
